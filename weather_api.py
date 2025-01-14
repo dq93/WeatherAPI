@@ -1,8 +1,6 @@
 import requests
 import pandas as pd
-from bs4 import BeautifulSoup
 import json
-import csv
 
 URL = "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.72&longitude=-45.39&start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure"
 
@@ -15,19 +13,13 @@ if response.status_code == 200:
     json_data_filepath = "data/json/weather_data.json"
 
     with open(json_data_filepath, "w") as file:
-        json.dump(data, file, indent = 4)
+        json.dump(data, file, indent=4)
     
     df = pd.DataFrame(data)
 
-    hourly_data = data["hourly"]
+    hourly_data = pd.DataFrame(data["hourly"])
 
-    cleaned_data = {
-        "time": hourly_data["time"],
-        "temperature_2m": hourly_data["temperature_2m"],
-        "relative_humidity_2m": hourly_data["relative_humidity_2m"],
-        "precipitation": hourly_data["precipitation"],
-        "surface_pressure": hourly_data["surface_pressure"]
-    }
+    cleaned_data = hourly_data[["time", "temperature_2m", "relative_humidity_2m", "precipitation", "surface_pressure"]]
 
     new_df = pd.DataFrame(cleaned_data)
 
