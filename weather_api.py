@@ -34,4 +34,4 @@ if response.status_code == 200:
     
 else:
     #incase status_code is not 200
-    print("error:unable to access the URL")
+    print("Error: Unable to access the URL")
