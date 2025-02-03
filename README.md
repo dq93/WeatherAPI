@@ -54,11 +54,4 @@ For each of these questions and subsequent visualizations, be sure to include a 
 
 To form visualizations that answer these analytical questions, utilize your knowledge of appropriate visualizations for categorical and quantitative variables.
 
-## Submission 
-
-The due date for this project is `01/17`.
-
-To begin work on this project, you will create a repository in your GitHub and copy all these template files into your repo.
-
-To submit this project, you will submit a link to your completed GitHub repository to Canvas.
 
